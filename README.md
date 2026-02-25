@@ -23,14 +23,27 @@ To write and execute an Assembly Language Program for sorting data in Ascending 
 ## Program (Ascending order)
 
 ```asm
-
-
-
-
+ORG 0000H
+LOOP1:MOV R0,#40H
+MOV R6,#04H
+DEC R6
+LOOP:MOV A,@R0
+INC R0
+MOV B,@R0
+CJNE A,B,NEXT
+NEXT:JC DOWN
+MOV@R0,A
+DEC R0
+MOV@R0,B
+INC R0
+DOWN:DJNZ R6,LOOP
+MOV R1,#04H
+DJNZ R1,LOOP1
+END
 ```
 ## OUTPUT(Ascending order)
 
-
+<img width="1916" height="1195" alt="Screenshot 2026-02-21 092443" src="https://github.com/user-attachments/assets/961dbc82-8e6f-4161-a6fd-8f797febf7e0" />
 
 ---
 
@@ -49,16 +62,32 @@ To write and execute an Assembly Language Program for sorting data in Ascending 
 ## Program (Descending order)
 
 ```asm
-
-
-
-
+ORG 0000H
+LOOP1:MOV R0,#40H
+MOV R6,#04H
+DEC R6
+LOOP:MOV A,@R0
+INC R0
+MOV B,@R0
+CJNE A,B,NEXT
+NEXT:JNC DOWN
+MOV@R0,A
+DEC R0
+MOV@R0,B
+INC R0
+DOWN:DJNZ R6,LOOP
+MOV R1,#04H
+DJNZ R1,LOOP1
+END
 ```
 ## OUTPUT(Descending order)
 
 
+<img width="1919" height="1199" alt="Screenshot 2026-02-21 092839" src="https://github.com/user-attachments/assets/4b07b05f-9840-42d0-b9bf-78436d0a1dcc" />
 
----
+## Manual Calculation
+<img width="926" height="1280" alt="image" src="https://github.com/user-attachments/assets/0245895b-a0f6-4b7c-bc62-98b29da152b3" />
+
 ## RESULT:
 Thus the sorting of given data was done using 8051 keil software.
 
